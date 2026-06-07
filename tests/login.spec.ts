@@ -15,37 +15,41 @@ test('test', async ({ page }) => {
 });
 
 // Best Practice
-
 test('login success', async ({ page }) => {
-  // Open login page
+  // Precondition
   await page.goto('https://www.emra.chat/login');
-  // Fill email
+  
+  // Step
   await page.getByRole('textbox', {name: 'Email'}).fill('nuruddinam46@gmail.com');
-  // Fill password
   await page.getByRole('textbox', {name: 'Password'}).fill('Suksesmulia99');
-  // Click sign in
   await page.getByRole('button', {name: 'Sign In'}).click();
-  // Assertion
+
+  // Expected Result
   await expect(page.getByRole('heading', {name: 'Welcome to Emra! 🎉',exact: true})).toBeVisible();
-  // Screenshot
   await page.screenshot({path: 'screenshots/login-success.png',fullPage: true});
 
   });
 
   test('login failed password invalid', async ({ page }) => {
+  // Precondition
   await page.goto('https://www.emra.chat/login');
+  // Step
   await page.getByRole('textbox', { name: 'Email' }).fill('nuruddinam46@gmail.com');
   await page.getByRole('textbox', { name: 'Password' }).fill('a');
   await page.getByRole('button', { name: 'Sign In' }).click();
+  // Expected Result
   await expect(page.getByText('Invalid credentials')).toBeVisible();
 
 });
 
 test('login failed email invalid', async ({ page }) => {
+  // Precondition
   await page.goto('https://www.emra.chat/login');
+  // Step
   await page.getByRole('textbox', { name: 'Email' }).fill('a');
   await page.getByRole('textbox', { name: 'Password' }).fill('a');
   await page.getByRole('button', { name: 'Sign In' }).click();
+  // Expected Result
   const validationMessage = await page.getByRole('textbox', { name: 'Email' }).evaluate((el: HTMLInputElement) => el.validationMessage);
   expect(validationMessage).toContain("Please include an '@' in the email address. 'a' is missing an '@'.");
 
