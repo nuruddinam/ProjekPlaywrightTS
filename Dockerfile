@@ -16,4 +16,6 @@ RUN npx playwright install --with-deps
 
 ENV PLAYWRIGHT_BROWSERS_PATH=0
 
-ENTRYPOINT [ "/app/docker.sh" ]
+CMD ["npx", "playwright", "test"]
+
+# ENTRYPOINT [ "/app/docker.sh" ]
