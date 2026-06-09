@@ -1,0 +1,117 @@
+import { Page, Locator, expect } from '@playwright/test';
+import { UserData } from '../models/user-data';
+
+export class RegisterPage {
+  readonly page: Page;
+
+  readonly emailField: Locator;
+  readonly passwordField: Locator;
+  readonly confirmPasswordField: Locator;
+
+  readonly fullNameField: Locator;
+  readonly phoneNumberField: Locator;
+
+  readonly companyNameField: Locator;
+  readonly industryDropdown: Locator;
+  readonly companySizeDropdown: Locator;
+
+  readonly nextButton: Locator;
+  readonly createAccountButton: Locator;
+
+  constructor(page: Page) {
+    this.page = page;
+
+    this.emailField = page.getByRole('textbox', {
+      name: 'Email',
+    });
+
+    this.passwordField = page.getByRole('textbox', {
+      name: 'Password',
+      exact: true,
+    });
+
+    this.confirmPasswordField = page.getByRole('textbox', {
+      name: 'Confirm Password',
+    });
+
+    this.fullNameField = page.getByRole('textbox', {
+      name: 'Full Name',
+    });
+
+    this.phoneNumberField = page.getByRole('textbox', {
+      name: 'Phone Number',
+    });
+
+    this.companyNameField = page.getByRole('textbox', {
+      name: 'Company Name',
+    });
+
+    this.industryDropdown = page.getByLabel('Industry');
+
+    this.companySizeDropdown = page.getByLabel('Company Size');
+
+    this.nextButton = page.getByRole('button', {
+      name: 'Next',
+    });
+
+    this.createAccountButton = page.getByRole('button', {
+      name: 'Create Account',
+    });
+  }
+
+  async goto() {
+    await this.page.goto('https://www.emra.chat/signup');
+  }
+
+  // async register(
+  //   email: string,
+  //   password: string,
+  //   fullName: string,
+  //   phoneNumber: string,
+  //   companyName: string,
+  //   industry: string,
+  //   companySize: string
+  // ) 
+  async register(user: UserData)
+  {
+
+    // Step 1
+    await this.emailField.fill(user.email);
+    await this.passwordField.fill(user.password);
+    await this.confirmPasswordField.fill(user.password);
+    // console.log(email);
+
+    // console.log(
+    //   'Password Value:',
+    //   await this.passwordField.inputValue()
+    // );
+    // console.log(
+    //   'Confirm Password Value:',
+    //   await this.confirmPasswordField.inputValue()
+    // );
+    await this.nextButton.click();
+
+    // Step 2
+    await this.fullNameField.fill(user.fullName);
+    await this.phoneNumberField.fill(user.phoneNumber);
+    await this.nextButton.click();
+
+    // Step 3
+    await this.companyNameField.fill(user.companyName);
+    await this.industryDropdown.selectOption(user.industry);
+    await this.companySizeDropdown.selectOption(user.companySize);
+    await this.createAccountButton.click();
+  }
+
+  async verifyRegisterSuccess() {
+    await expect(
+      this.page.getByRole('heading', { name: 'Emra' })
+    ).toBeVisible();
+  }
+
+  async logout(email: string) {
+  await this.page.locator('button').filter({ hasText: email }).click();
+  await this.page.getByRole('menuitem', { name: 'Logout' }).click();
+  await this.page.waitForURL('**/login');
+  }
+}

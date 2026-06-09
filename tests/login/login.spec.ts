@@ -15,23 +15,21 @@ test('test', async ({ page }) => {
 });
 
 // Best Practice
-test('login success', async ({ page }) => {
+test('login success use valid credential @p0 @login @smoketest', async ({ page }) => {
   // Precondition
   await page.goto('https://www.emra.chat/login');
-  
   // Step
   await page.getByRole('textbox', {name: 'Email'}).fill('nuruddinam46@gmail.com');
   await page.getByRole('textbox', {name: 'Password'}).fill('Suksesmulia99');
   await page.getByRole('button', {name: 'Sign In'}).click();
-
   // Expected Result
   await expect(page.getByRole('heading', {name: 'Welcome to Emra! 🎉',exact: true})).toBeVisible();
   await page.screenshot({path: 'screenshots/login-success.png',fullPage: true});
 
   });
-
-  test('login failed password invalid', async ({ page }) => {
-  // Precondition
+ 
+test('login failed password invalid @p0 @login @smoketest', async ({ page }) => {
+// Precondition
   await page.goto('https://www.emra.chat/login');
   // Step
   await page.getByRole('textbox', { name: 'Email' }).fill('nuruddinam46@gmail.com');
@@ -42,7 +40,7 @@ test('login success', async ({ page }) => {
 
 });
 
-test('login failed email invalid', async ({ page }) => {
+test('login failed email invalid @p0 @login @smoketest', async ({ page }) => {
   // Precondition
   await page.goto('https://www.emra.chat/login');
   // Step
