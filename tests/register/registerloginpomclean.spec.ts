@@ -11,9 +11,11 @@ test('Register then Login', async ({ page }) => {
 
   await registerPage.goto();
   await registerPage.register(user);
+  await registerPage.verifyRegisterSuccess();
   await registerPage.logout(user.email);
 
   await loginPage.goto();
   await loginPage.login(user.email, user.password);
   await loginPage.verifyLoginSuccess();
 });
+
