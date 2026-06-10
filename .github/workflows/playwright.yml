@@ -10,7 +10,11 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     container:
-      image: nuruddinam/projekplaywrightts:base
+      image: nuruddin46/projekplaywrightts:base
+      credentials:
+        username: ${{ vars.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
     steps:
      - name: Checkout Repository
        uses: actions/checkout@v4
