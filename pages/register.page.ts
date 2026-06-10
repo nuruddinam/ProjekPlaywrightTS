@@ -105,8 +105,7 @@ export class RegisterPage {
 
   async verifyRegisterSuccess() {
     await expect(
-      this.page.getByRole('heading', { name: 'Emra' })
-    ).toBeVisible();
+  this.page.getByRole('heading', { name: 'Emra', exact: true }) ).toBeVisible();
   }
 
   async logout(email: string) {
