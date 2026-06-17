@@ -19,7 +19,7 @@ export class LoginPage {
   }
 
   async goto(){
-    await this.page.goto('https://www.emra.chat/login');
+    await this.page.goto('/login'); // 
     await this.page.waitForLoadState('networkidle');
     console.log("After Login URL:", await this.page.url());
     await expect(this.emailField).toBeVisible();
