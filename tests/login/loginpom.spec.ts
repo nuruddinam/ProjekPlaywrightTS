@@ -1,15 +1,14 @@
 import { test } from '@playwright/test';
 import { LoginPage } from '../../pages/login.page';
+import { testData } from '../../pages/test-data';
 
 //Positive TC
 test('1-Login success use valid credential @p0 @login @smoketest', async ({ page }) => {
- const email ="nuruddinam46@gmail.com"
- const password = "Suksesmulia99"
  const loginPage = new LoginPage(page)
 
  await loginPage.goto()
- await loginPage.emailField.fill(email)
- await loginPage.passwordField.fill(password)
+ await loginPage.emailField.fill(testData.login.valid.email);
+ await loginPage.passwordField.fill(testData.login.valid.password);
  await loginPage.loginButton.click();
 });
 
@@ -18,7 +17,7 @@ test('2-Login failed email invalid @p0 @login @smoketest', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
   await loginPage.goto();
-  await loginPage.login('nuruddinam@gmail.com', 'Suksesmulia99');
+  await loginPage.login(testData.login.invalid.unregisteredEmail, testData.login.valid.password);
   await loginPage.verifyInvalidCredentials();
 });
 

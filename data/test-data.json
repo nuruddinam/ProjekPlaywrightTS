@@ -1,9 +1,5 @@
 {
   "login": {
-    "valid": {
-      "email": "nuruddinam46@gmail.com",
-      "password": "Suksesmulia99"
-    },
     "invalid": {
       "unregisteredEmail": "nuruddinam@gmail.com",
       "wrongPassword": "a",
