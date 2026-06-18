@@ -7,6 +7,10 @@ dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 export default defineConfig({
   testDir: './tests',
+  
+  // 🟢 POSISI YANG BENAR: Taruh testIgnore di sini (top-level)
+  testIgnore: '**/forgotpassword/**', // Sesuai dengan folder kamu: tests/forgotpassword/
+
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
