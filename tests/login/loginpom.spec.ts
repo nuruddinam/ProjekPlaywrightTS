@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
-import { LoginPage } from '../../pages/login.page';
-import { testData } from '../../pages/test-data';
+import { LoginPage } from '../../pages/login/login.page';
+import { testData } from '../../pages/testdata/test-data';
 
 //Positive TC
 test('1-Login success use valid credential @p0 @login @smoketest', async ({ page }) => {

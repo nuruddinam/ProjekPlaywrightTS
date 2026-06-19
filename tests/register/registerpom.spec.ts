@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { RegisterPage } from '../../pages/register.page';
+import { RegisterPage } from '../../pages/register/register.page';
 import { UserFactory } from '../../utils/user-factory';
 
 //Positive TC
@@ -11,14 +11,6 @@ test('6-Register success using valid credential @p0 @register', async ({ page })
   await registerPage.register(user);
   await registerPage.verifyRegisterSuccess();
 });
-
-
-
-
-
-
-
-
 
 //Negative TC
 test('7-Register failed using already registered email @p1 @register', async ({ page }) => {

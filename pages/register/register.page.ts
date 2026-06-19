@@ -1,5 +1,5 @@
 import { Page, Locator, expect } from '@playwright/test';
-import { UserData } from '../models/user-data';
+import { UserData } from '../../models/user-data';
 
 export class RegisterPage {
   readonly page: Page;

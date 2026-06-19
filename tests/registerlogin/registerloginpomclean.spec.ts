@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
-import { RegisterPage } from '../../pages/register.page';
-import { LoginPage } from '../../pages/login.page';
+import { RegisterPage } from '../../pages/register/register.page';
+import { LoginPage } from '../../pages/login/login.page';
 import { UserFactory } from '../../utils/user-factory';
 
 test('Register then Login', async ({ page }) => {
