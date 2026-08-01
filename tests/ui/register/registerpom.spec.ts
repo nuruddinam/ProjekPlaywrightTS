@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
-import { RegisterPage } from '../../pages/register/register.page';
-import { UserFactory } from '../../utils/user-factory';
+import { RegisterPage } from '../../../pages/register/register.page';
+import { UserFactory } from '../../../utils/user-factory';
 
 //Positive TC
 test('6-Register success using valid credential @p0 @register', async ({ page }) => {

@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
-import testData from '../../data/test-data.json';
+import testData from '../../../data/staging/user.json';
 
 test.describe('Forgot Password - Non POM Version', () => {
-    test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ page }) => {
     // Membuka halaman login (baseURL diambil dari playwright.config.ts)
     await page.goto('/login');
     // 1. Klik opsi tautan "Forgot?"
@@ -50,7 +50,7 @@ test.describe('Forgot Password - Non POM Version', () => {
 
   test('5-Password reset rate limiting for consecutive requests @p2 @negative', async ({ page }) => {
     await page.getByRole('textbox', { name: 'Email' }).fill(testData.forgotPassword.validEmail);
-    
+
     // Melakukan klik berturut-turut dengan cepat (consecutive requests)
     await page.getByRole('button', { name: 'Reset Password' }).click();
     await page.getByRole('button', { name: 'Reset Password' }).click({ clickCount: 2 });

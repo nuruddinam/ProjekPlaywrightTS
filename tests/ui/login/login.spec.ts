@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { testData } from '../../pages/testdata/test-data';
+import { testData } from '../../../pages/testdata/test-data';
 
 test('test', async ({ page }) => {
   await page.goto('https://www.emra.chat/login');

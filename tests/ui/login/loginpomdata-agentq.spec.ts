@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'; // 🟢 Kembali ke Playwright murni
-import { LoginAgentQPage } from '../../pages/login/login-agentq.page'; 
-import { testData } from '../../pages/testdata/test-data';
-import { pushTestResultToAgentQ } from '../../helpers/agentq-helper'; // 🟢 Impor helper baru
+import { LoginAgentQPage } from '../../../pages/login/login-agentq.page'; 
+import { testData } from '../../../pages/testdata/test-data';
+import { pushTestResultToAgentQ } from '../../../helpers/agentq-helper'; // 🟢 Impor helper baru
 
 test.describe('Login AgentQ Reporting Tests', () => {
   let testStartTime: number;
