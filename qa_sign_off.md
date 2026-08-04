@@ -67,7 +67,7 @@ US-01 â€” Register | Total: 19 TC | Manual: 0 | Automation: 19
 | 6 | Register failed with empty email and password | Functional | Web | High | Auto | Negative | PASS ✅ |
 | 7 | Register failed with weak password | Functional | Web | High | Auto | Negative | PASS ✅ |
 | 8 | Register failed with empty full name in Step 2 | Functional | Web | High | Auto | Negative | PASS ✅ |
-| 9 | Register failed with empty company name in Step 3 | Functional | Web | High | Auto | Negative | FAIL ❌ |
+| 9 | Register failed with empty company name in Step 3 | Functional | Web | High | Auto | Negative | PASS ✅ |
 | 10 | Register success and verify JWT token in local storage | Integration | Web | High | Auto | Positive | PASS ✅ |
 | 11 | Register success and verify API payload mapping | Integration | Web | High | Auto | Positive | FAIL ❌ |
 | 12 | Register success and verify redirect URL | Functional | Web | Medium | Auto | Positive | PASS ✅ |
@@ -75,8 +75,8 @@ US-01 â€” Register | Total: 19 TC | Manual: 0 | Automation: 19
 | 14 | Should return 422 when registering with an existing email | Functional | API | High | Auto | Negative | PASS ✅ |
 | 15 | Should return 422 when mandatory fields are missing | Functional | API | High | Auto | Negative | PASS ✅ |
 | 16 | Should correctly map old phone parameter to phone_number | Functional | API | Medium | Auto | Edge | PASS ✅ |
-| 17 | Should return 422 for weak passwords | Functional | API | Medium | Auto | Negative | PASS ✅ |
-| 18 | Should auto-assign default trial package upon successful registration | Functional | API | High | Auto | Positive | PASS ✅ |
+| 17 | Should return 422 for weak passwords | Functional | API | Medium | Auto | Negative | FAIL ❌ |
+| 18 | Should auto-assign default trial package upon successful registration | Functional | API | High | Auto | Positive | FAIL ❌ |
 | 19 | Verify activity logging for registration | Integration | API | Medium | Auto | Edge | PASS ✅ |
 
 ---
@@ -155,7 +155,11 @@ Berdasarkan kesimpulan *NO-GO* dan pelaporan *bug* di atas, persetujuan bersyara
      Received: undefined (Bug: Status user tidak dikembalikan sebagai active)
   ```
 - **Hasil GitHub Actions:** https://github.com/fadhlimaulidri/bootcamp_automation_2a/actions/runs/30627375827
-- **Tiket Bug di Plane:** https://plane.emra.pro/fadhlimaulidri/projects/b5a92fdc-44cb-46bf-91f1-c22d7123ec8a/issues/
+- **Tiket Bug di Plane:**
+  1. https://plane.emra.pro/fadhlimaulidri/projects/b5a92fdc-44cb-46bf-91f1-c22d7123ec8a/intake/?currentTab=open&inboxIssueId=109b47f0-67ab-42ed-a842-273142206989
+  2. https://plane.emra.pro/fadhlimaulidri/projects/b5a92fdc-44cb-46bf-91f1-c22d7123ec8a/intake/?currentTab=open&inboxIssueId=e3a77bcc-69ab-4cf8-80d8-90895c5ce8e3
+  3. https://plane.emra.pro/fadhlimaulidri/projects/b5a92fdc-44cb-46bf-91f1-c22d7123ec8a/intake/?currentTab=open&inboxIssueId=5e9f5273-31df-483b-b8e3-f1d81cfe6c7b
+  4. https://plane.emra.pro/fadhlimaulidri/projects/b5a92fdc-44cb-46bf-91f1-c22d7123ec8a/intake/?currentTab=open&inboxIssueId=aa2fc3c7-fa16-4e81-ad3f-4a098a27fdb4
 - **Data CSV Test Cases (Import AgentQ):**
   ![Data CSV Import AgentQ](./report-assets/import_agentq.png)
 
